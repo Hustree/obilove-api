@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "obiloveapi.Domain", "obiloveapi.Domain\obiloveapi.Domain.csproj", "{8D7771A4-2B36-47A7-93FF-AE00FE5AC06A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "obiloveapi.Application", "obiloveapi.Application\obiloveapi.Application.csproj", "{8C53D954-1E9B-44F6-A8D9-7ACD03E27D8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "obiloveapi.Infrastructure", "obiloveapi.Infrastructure\obiloveapi.Infrastructure.csproj", "{B1E9ABCA-9C82-4454-B9D1-C997899972B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "obiloveapi.API", "obiloveapi.API\obiloveapi.API.csproj", "{5E63794A-8386-4BAB-97E0-8E09546DC5C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D7771A4-2B36-47A7-93FF-AE00FE5AC06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7771A4-2B36-47A7-93FF-AE00FE5AC06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7771A4-2B36-47A7-93FF-AE00FE5AC06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7771A4-2B36-47A7-93FF-AE00FE5AC06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C53D954-1E9B-44F6-A8D9-7ACD03E27D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C53D954-1E9B-44F6-A8D9-7ACD03E27D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C53D954-1E9B-44F6-A8D9-7ACD03E27D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C53D954-1E9B-44F6-A8D9-7ACD03E27D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E9ABCA-9C82-4454-B9D1-C997899972B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E9ABCA-9C82-4454-B9D1-C997899972B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E9ABCA-9C82-4454-B9D1-C997899972B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E9ABCA-9C82-4454-B9D1-C997899972B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E63794A-8386-4BAB-97E0-8E09546DC5C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E63794A-8386-4BAB-97E0-8E09546DC5C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E63794A-8386-4BAB-97E0-8E09546DC5C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E63794A-8386-4BAB-97E0-8E09546DC5C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

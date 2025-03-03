@@ -1,0 +1,6 @@
+@obiloveapi.API_HostAddress = http://localhost:5207
+
+GET {{obiloveapi.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
