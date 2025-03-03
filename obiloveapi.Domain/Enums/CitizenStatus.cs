@@ -1,7 +1,7 @@
-﻿// obiloveapi.Domain/Enums/CitizenStatus.cs
+﻿// obiloveapi.Domain/Enums/UserStatus.cs
 namespace obiloveapi.Domain.Enums
 {
-    public enum CitizenStatus
+    public enum UserStatus
     {
         Pending,    // Registration submitted; pending verification.
         Verified,   // Verified as legit.

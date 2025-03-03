@@ -1,15 +1,15 @@
-﻿// obiloveapi.Application/Interfaces/ICitizenRepository.cs
+﻿// obiloveapi.Application/Interfaces/IUserRepository.cs
 using System.Threading.Tasks;
 using obiloveapi.Domain.Entities;
 
 namespace obiloveapi.Application.Interfaces
 {
-    public interface ICitizenRepository
+    public interface IUserRepository
     {
-        Task AddAsync(Citizen citizen);
-        Task<Citizen?> GetByIdAsync(int citizenId);
-        void Update(Citizen citizen);
-        void Delete(Citizen citizen);
+        Task AddAsync(User user);
+        Task<User?> GetByIdAsync(int userId);
+        void Update(User user);
+        void Delete(User user);
         Task SaveChangesAsync();
     }
 }

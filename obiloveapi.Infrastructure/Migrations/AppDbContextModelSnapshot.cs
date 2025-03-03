@@ -60,13 +60,13 @@ namespace obiloveapi.Infrastructure.Migrations
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("obiloveapi.Domain.Entities.Citizen", b =>
+            modelBuilder.Entity("obiloveapi.Domain.Entities.User", b =>
                 {
-                    b.Property<int>("CitizenId")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CitizenId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<int>("AddressId")
                         .HasColumnType("integer");
@@ -106,11 +106,11 @@ namespace obiloveapi.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.HasKey("CitizenId");
+                    b.HasKey("UserId");
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Citizens");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("obiloveapi.Domain.Entities.Province", b =>
@@ -192,7 +192,7 @@ namespace obiloveapi.Infrastructure.Migrations
                     b.Navigation("Province");
                 });
 
-            modelBuilder.Entity("obiloveapi.Domain.Entities.Citizen", b =>
+            modelBuilder.Entity("obiloveapi.Domain.Entities.User", b =>
                 {
                     b.HasOne("obiloveapi.Domain.Entities.Address", "Address")
                         .WithMany()

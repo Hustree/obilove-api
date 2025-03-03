@@ -1,12 +1,12 @@
-﻿// obiloveapi.Application/Validators/CitizenCreateValidator.cs
+﻿// obiloveapi.Application/Validators/UserCreateValidator.cs
 using FluentValidation;
-using obiloveapi.Application.DTOs.Citizen;
+using obiloveapi.Application.DTOs.User;
 
 namespace obiloveapi.Application.Validators
 {
-    public class CitizenCreateValidator : AbstractValidator<CitizenCreateRequest>
+    public class UserCreateValidator : AbstractValidator<UserCreateRequest>
     {
-        public CitizenCreateValidator()
+        public UserCreateValidator()
         {
             RuleFor(x => x.FirstName)
                 .NotEmpty().WithMessage("First name is required")

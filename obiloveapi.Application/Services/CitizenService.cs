@@ -1,7 +1,7 @@
-﻿// obiloveapi.Application/Services/CitizenService.cs
+﻿// obiloveapi.Application/Services/UserService.cs
 using System.Threading.Tasks;
 using obiloveapi.Application.DTOs;
-using obiloveapi.Application.DTOs.Citizen;
+using obiloveapi.Application.DTOs.User;
 using obiloveapi.Application.Interfaces;
 using obiloveapi.Domain.Entities;
 using obiloveapi.Domain.Enums;
@@ -10,93 +10,93 @@ using System.Collections.Generic;
 
 namespace obiloveapi.Application.Services
 {
-    public class CitizenService : ICitizenService
+    public class UserService : IUserService
     {
-        private readonly ICitizenRepository _citizenRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public CitizenService(ICitizenRepository citizenRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
-            _citizenRepository = citizenRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<int>> CreateCitizenAsync(CitizenCreateRequest request)
+        public async Task<ApiResponse<int>> CreateUserAsync(UserCreateRequest request)
         {
             // Map DTO to domain entity
-            var citizen = _mapper.Map<Citizen>(request);
+            var user = _mapper.Map<User>(request);
             // Set the default status as Pending upon registration.
-            citizen.Status = CitizenStatus.Pending;
+            user.Status = UserStatus.Pending;
 
-            await _citizenRepository.AddAsync(citizen);
-            await _citizenRepository.SaveChangesAsync();
+            await _userRepository.AddAsync(user);
+            await _userRepository.SaveChangesAsync();
 
-            return new ApiResponse<int> { Data = citizen.CitizenId };
+            return new ApiResponse<int> { Data = user.UserId };
         }
 
-        public async Task<ApiResponse<CitizenResponse>> GetCitizenByIdAsync(int citizenId)
+        public async Task<ApiResponse<UserResponse>> GetUserByIdAsync(int userId)
         {
-            var citizen = await _citizenRepository.GetByIdAsync(citizenId);
-            if (citizen == null)
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
             {
-                return new ApiResponse<CitizenResponse>
+                return new ApiResponse<UserResponse>
                 {
                     Success = false,
                     Errors = new Dictionary<string, string[]>
                     {
-                        { "Citizen", new [] { "Citizen not found" } }
+                        { "User", new [] { "User not found" } }
                     }
                 };
             }
 
             // Map domain entity to response DTO.
-            var response = _mapper.Map<CitizenResponse>(citizen);
+            var response = _mapper.Map<UserResponse>(user);
 
-            return new ApiResponse<CitizenResponse> { Data = response };
+            return new ApiResponse<UserResponse> { Data = response };
         }
 
-        public async Task<ApiResponse<bool>> UpdateCitizenAsync(CitizenUpdateRequest request)
+        public async Task<ApiResponse<bool>> UpdateUserAsync(UserUpdateRequest request)
         {
-            var citizen = await _citizenRepository.GetByIdAsync(request.CitizenId);
-            if (citizen == null)
+            var user = await _userRepository.GetByIdAsync(request.UserId);
+            if (user == null)
             {
                 return new ApiResponse<bool>
                 {
                     Success = false,
                     Errors = new Dictionary<string, string[]>
                     {
-                        { "Citizen", new [] { "Citizen not found" } }
+                        { "User", new [] { "User not found" } }
                     }
                 };
             }
 
             // Map update DTO onto the existing domain entity.
             // This updates properties while leaving unmodified fields intact.
-            _mapper.Map(request, citizen);
+            _mapper.Map(request, user);
 
-            _citizenRepository.Update(citizen);
-            await _citizenRepository.SaveChangesAsync();
+            _userRepository.Update(user);
+            await _userRepository.SaveChangesAsync();
 
             return new ApiResponse<bool> { Data = true };
         }
 
-        public async Task<ApiResponse<bool>> DeleteCitizenAsync(int citizenId)
+        public async Task<ApiResponse<bool>> DeleteUserAsync(int userId)
         {
-            var citizen = await _citizenRepository.GetByIdAsync(citizenId);
-            if (citizen == null)
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
             {
                 return new ApiResponse<bool>
                 {
                     Success = false,
                     Errors = new Dictionary<string, string[]>
                     {
-                        { "Citizen", new [] { "Citizen not found" } }
+                        { "User", new [] { "User not found" } }
                     }
                 };
             }
 
-            _citizenRepository.Delete(citizen);
-            await _citizenRepository.SaveChangesAsync();
+            _userRepository.Delete(user);
+            await _userRepository.SaveChangesAsync();
 
             return new ApiResponse<bool> { Data = true };
         }

@@ -1,4 +1,4 @@
-﻿// obiloveapi.Infrastructure/Repositories/CitizenRepository.cs
+﻿// obiloveapi.Infrastructure/Repositories/UserRepository.cs
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using obiloveapi.Application.Interfaces;
@@ -7,35 +7,35 @@ using obiloveapi.Infrastructure.Data;
 
 namespace obiloveapi.Infrastructure.Repositories
 {
-    public class CitizenRepository : ICitizenRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
 
-        public CitizenRepository(AppDbContext context)
+        public UserRepository(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task AddAsync(Citizen citizen)
+        public async Task AddAsync(User user)
         {
-            await _context.Citizens.AddAsync(citizen);
+            await _context.Users.AddAsync(user);
         }
 
-        public async Task<Citizen?> GetByIdAsync(int citizenId)
+        public async Task<User?> GetByIdAsync(int userId)
         {
-            return await _context.Citizens
+            return await _context.Users
                 .Include(c => c.Address)
-                .FirstOrDefaultAsync(c => c.CitizenId == citizenId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
         }
 
-        public void Update(Citizen citizen)
+        public void Update(User user)
         {
-            _context.Citizens.Update(citizen);
+            _context.Users.Update(user);
         }
 
-        public void Delete(Citizen citizen)
+        public void Delete(User user)
         {
-            _context.Citizens.Remove(citizen);
+            _context.Users.Remove(user);
         }
 
         public async Task SaveChangesAsync()

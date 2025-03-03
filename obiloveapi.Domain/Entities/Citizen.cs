@@ -1,14 +1,14 @@
-﻿// obiloveapi.Domain/Entities/Citizen.cs
+﻿// obiloveapi.Domain/Entities/User.cs
 using System.ComponentModel.DataAnnotations;
 using obiloveapi.Domain.Common;
 using obiloveapi.Domain.Enums;
 
 namespace obiloveapi.Domain.Entities
 {
-    public class Citizen : EntityBase
+    public class User : EntityBase
     {
         [Key]
-        public int CitizenId { get; set; }
+        public int UserId { get; set; }
 
         [Required, MaxLength(100)]
         public string FirstName { get; set; }
@@ -27,7 +27,7 @@ namespace obiloveapi.Domain.Entities
         public string? PhoneNumber { get; set; }
 
         // Verification status flag
-        public CitizenStatus Status { get; set; } = CitizenStatus.Pending;
+        public UserStatus Status { get; set; } = UserStatus.Pending;
 
         // Navigation property for a normalized Address
         public virtual Address Address { get; set; }

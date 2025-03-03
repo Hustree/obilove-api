@@ -1,7 +1,7 @@
-﻿// obiloveapi.Application/DTOs/Citizen/CitizenCreateRequest.cs
-namespace obiloveapi.Application.DTOs.Citizen
+﻿// obiloveapi.Application/DTOs/User/UserCreateRequest.cs
+namespace obiloveapi.Application.DTOs.User
 {
-    public class CitizenCreateRequest
+    public class UserCreateRequest
     {
         public string FirstName { get; set; }
         public string? MiddleName { get; set; }

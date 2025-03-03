@@ -1,18 +1,18 @@
-﻿// obiloveapi.Application/MappingProfiles/CitizenMappingProfile.cs
+﻿// obiloveapi.Application/MappingProfiles/UserMappingProfile.cs
 using AutoMapper;
-using obiloveapi.Application.DTOs.Citizen;
+using obiloveapi.Application.DTOs.User;
 using obiloveapi.Domain.Entities;
 using obiloveapi.Domain.Enums;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace obiloveapi.Application.MappingProfiles
 {
-    public class CitizenMappingProfile : Profile
+    public class UserMappingProfile : Profile
     {
-        public CitizenMappingProfile()
+        public UserMappingProfile()
         {
-            // Map from CitizenCreateRequest to Citizen, including nested Address.
-            CreateMap<CitizenCreateRequest, Citizen>()
+            // Map from UserCreateRequest to User, including nested Address.
+            CreateMap<UserCreateRequest, User>()
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => new Address
                 {
                     Street = src.Street,
@@ -22,8 +22,8 @@ namespace obiloveapi.Application.MappingProfiles
                 }))
                 .ForMember(dest => dest.Status, opt => opt.Ignore()); // We'll set Status in the service.
 
-            // Map from Citizen to CitizenResponse, including FullName formatting.
-            CreateMap<Citizen, CitizenResponse>()
+            // Map from User to UserResponse, including FullName formatting.
+            CreateMap<User, UserResponse>()
                 .ForMember(dest => dest.FullName,
                     opt => opt.MapFrom(src => $"{src.FirstName} {src.MiddleName} {src.LastName}".Replace("  ", " ").Trim()))
                 .ForMember(dest => dest.Street,
@@ -35,10 +35,10 @@ namespace obiloveapi.Application.MappingProfiles
                 .ForMember(dest => dest.BarangayId,
                     opt => opt.MapFrom(src => src.Address != null ? src.Address.BarangayId : 0));
 
-            // Map from CitizenUpdateRequest to Citizen.
+            // Map from UserUpdateRequest to User.
             // You might want to ignore some fields that should not be overwritten.
-            CreateMap<CitizenUpdateRequest, Citizen>()
-                .ForMember(dest => dest.CitizenId, opt => opt.Ignore())
+            CreateMap<UserUpdateRequest, User>()
+                .ForMember(dest => dest.UserId, opt => opt.Ignore())
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => new Address
                 {
                     Street = src.Street,

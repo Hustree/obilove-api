@@ -78,10 +78,10 @@ namespace obiloveapi.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Citizens",
+                name: "Users",
                 columns: table => new
                 {
-                    CitizenId = table.Column<int>(type: "integer", nullable: false)
+                    UserId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     FirstName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     MiddleName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
@@ -96,9 +96,9 @@ namespace obiloveapi.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Citizens", x => x.CitizenId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_Citizens_Addresses_AddressId",
+                        name: "FK_Users_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "AddressId",
@@ -111,8 +111,8 @@ namespace obiloveapi.Infrastructure.Migrations
                 column: "ProvinceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Citizens_AddressId",
-                table: "Citizens",
+                name: "IX_Users_AddressId",
+                table: "Users",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
@@ -125,7 +125,7 @@ namespace obiloveapi.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Citizens");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Addresses");

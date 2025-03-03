@@ -1,14 +1,14 @@
-﻿// obiloveapi.Application/Validators/CitizenUpdateValidator.cs
+﻿// obiloveapi.Application/Validators/UserUpdateValidator.cs
 using FluentValidation;
-using obiloveapi.Application.DTOs.Citizen;
+using obiloveapi.Application.DTOs.User;
 
 namespace obiloveapi.Application.Validators
 {
-    public class CitizenUpdateValidator : AbstractValidator<CitizenUpdateRequest>
+    public class UserUpdateValidator : AbstractValidator<UserUpdateRequest>
     {
-        public CitizenUpdateValidator()
+        public UserUpdateValidator()
         {
-            RuleFor(x => x.CitizenId)
+            RuleFor(x => x.UserId)
                 .GreaterThan(0);
             RuleFor(x => x.FirstName)
                 .NotEmpty().MaximumLength(100);

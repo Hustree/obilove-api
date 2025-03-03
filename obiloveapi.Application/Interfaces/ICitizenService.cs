@@ -1,15 +1,15 @@
-﻿// obiloveapi.Application/Interfaces/ICitizenService.cs
+﻿// obiloveapi.Application/Interfaces/IUserService.cs
 using System.Threading.Tasks;
 using obiloveapi.Application.DTOs;
-using obiloveapi.Application.DTOs.Citizen;
+using obiloveapi.Application.DTOs.User;
 
 namespace obiloveapi.Application.Interfaces
 {
-    public interface ICitizenService
+    public interface IUserService
     {
-        Task<ApiResponse<int>> CreateCitizenAsync(CitizenCreateRequest request);
-        Task<ApiResponse<CitizenResponse>> GetCitizenByIdAsync(int citizenId);
-        Task<ApiResponse<bool>> UpdateCitizenAsync(CitizenUpdateRequest request);
-        Task<ApiResponse<bool>> DeleteCitizenAsync(int citizenId);
+        Task<ApiResponse<int>> CreateUserAsync(UserCreateRequest request);
+        Task<ApiResponse<UserResponse>> GetUserByIdAsync(int userId);
+        Task<ApiResponse<bool>> UpdateUserAsync(UserUpdateRequest request);
+        Task<ApiResponse<bool>> DeleteUserAsync(int userId);
     }
 }

@@ -20,13 +20,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 // Dependency Injection for repositories, services, and helpers
-builder.Services.AddScoped<ICitizenRepository, CitizenRepository>();
-builder.Services.AddScoped<ICitizenService, CitizenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, JwtTokenGenerator>();
 
 // Register AutoMapper with the assembly that contains your mapping profiles
-builder.Services.AddAutoMapper(typeof(CitizenMappingProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(UserMappingProfile).Assembly);
 
 // Controllers & FluentValidation
 builder.Services.AddControllers()

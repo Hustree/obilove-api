@@ -1,11 +1,11 @@
-﻿// obiloveapi.Application/DTOs/Citizen/CitizenResponse.cs
+﻿// obiloveapi.Application/DTOs/User/UserResponse.cs
 using obiloveapi.Domain.Enums;
 
-namespace obiloveapi.Application.DTOs.Citizen
+namespace obiloveapi.Application.DTOs.User
 {
-    public class CitizenResponse
+    public class UserResponse
     {
-        public int CitizenId { get; set; }
+        public int UserId { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
@@ -13,6 +13,6 @@ namespace obiloveapi.Application.DTOs.Citizen
         public int ProvinceId { get; set; }
         public int CityId { get; set; }
         public int BarangayId { get; set; }
-        public CitizenStatus Status { get; set; }
+        public UserStatus Status { get; set; }
     }
 }

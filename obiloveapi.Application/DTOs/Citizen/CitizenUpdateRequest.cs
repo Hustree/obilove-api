@@ -1,9 +1,9 @@
-﻿// obiloveapi.Application/DTOs/Citizen/CitizenUpdateRequest.cs
-namespace obiloveapi.Application.DTOs.Citizen
+﻿// obiloveapi.Application/DTOs/User/UserUpdateRequest.cs
+namespace obiloveapi.Application.DTOs.User
 {
-    public class CitizenUpdateRequest
+    public class UserUpdateRequest
     {
-        public int CitizenId { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
